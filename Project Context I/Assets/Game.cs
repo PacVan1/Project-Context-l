@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     private int index;
     private bool coroutineIsRunning = false;
     public LampVisualizer lampVisualizer;
+    public PowerSolver powerSolver;
 
     // color palette
     [SerializeField] public Color colorOn;
@@ -37,6 +38,7 @@ public class Game : MonoBehaviour
         if (GameManager.mouseDatas.Count == 2)
         {
             StartValues();
+            powerSolver.LoopThroughCables();
             lampVisualizer.ChangeLamps();
         }
         coroutineIsRunning = false;
@@ -46,10 +48,10 @@ public class Game : MonoBehaviour
     {
         switch (index)
         {
-            case 0: GameManager.startValue1 = 0; GameManager.startValue2 = 1; break;
-            case 1: GameManager.startValue1 = 1; GameManager.startValue2 = 1; break;
+            case 0: GameManager.startValue1 = 0; GameManager.startValue2 = 0; break;
+            case 1: GameManager.startValue1 = 0; GameManager.startValue2 = 1; break;
             case 2: GameManager.startValue1 = 1; GameManager.startValue2 = 0; break;
-            case 3: GameManager.startValue1 = 0; GameManager.startValue2 = 0; break;
+            case 3: GameManager.startValue1 = 1; GameManager.startValue2 = 1; break;
         }
 
         if (index == 3) { index = 0; }

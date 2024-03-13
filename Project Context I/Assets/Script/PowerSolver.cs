@@ -16,7 +16,7 @@ public class PowerSolver : MonoBehaviour
     {
         if (mouseDatas.Count == 2)
         {
-            LoopThroughCables();
+            //LoopThroughCables();
         }
     }
 
@@ -24,6 +24,7 @@ public class PowerSolver : MonoBehaviour
     {
         mouseDatas[0].value = GameManager.startValue1;
         mouseDatas[1].value = GameManager.startValue2;
+
         mouseDatas[0].lastIndex = 0;
         mouseDatas[1].lastIndex = 0;
 
