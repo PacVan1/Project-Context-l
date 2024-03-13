@@ -9,6 +9,12 @@ public class Game : MonoBehaviour
     private bool coroutineIsRunning = false;
     public LampVisualizer lampVisualizer;
 
+    // color palette
+    [SerializeField] public Color colorOn;
+    [SerializeField] public Color colorOff;
+    [SerializeField] public Color colorTrue;
+    [SerializeField] public Color colorFalse;
+
     private void Start()
     {
         lampVisualizer = GetComponent<LampVisualizer>();

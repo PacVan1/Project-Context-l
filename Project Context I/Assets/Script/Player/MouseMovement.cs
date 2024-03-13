@@ -28,6 +28,7 @@ public class MouseMovement : MonoBehaviour
     void Update()
     {
         rigidbody.AddForce(new Vector3(input.x, input.y));
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, -rigidbody.velocity);
     }
 
     public void OnMove(InputAction.CallbackContext ctx) => input = ctx.ReadValue<Vector2>();

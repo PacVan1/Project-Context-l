@@ -614,7 +614,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8090d88085f58f8449bc94fb2b68a60f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -643,3 +643,5 @@ MonoBehaviour:
   bPos: {fileID: 1201269168518277336}
   cPos: {fileID: 912480573152134069}
   dPos: {fileID: 3692892932450927714}
+  sprite: {fileID: 0}
+  gameManager: {fileID: 4065252112068991736, guid: 3d21c112b0264734ea73c0e108973c1b, type: 3}
