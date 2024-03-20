@@ -9,11 +9,16 @@ public class InputTrigger : Trigger
     {
         if (collision.CompareTag("Mouse"))
         {
+            Data mouseData = collision.GetComponent<Data>();
+
             if (!component.aIsConnected)
             {
-                Data mouseData = collision.GetComponent<Data>();
 
                 mouseData.ConnectCable(component, true);
+            }
+            else
+            {
+                mouseData.ConnectCable(component, false);
             }
         }
     }

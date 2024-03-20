@@ -40,6 +40,11 @@ public class Game : MonoBehaviour
             StartValues();
             powerSolver.LoopThroughCables();
             lampVisualizer.ChangeLamps();
+
+            foreach (Data mouse in GameManager.mouseDatas)
+            {
+                mouse.ChangeColor();
+            }
         }
         coroutineIsRunning = false;
     }

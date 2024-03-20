@@ -20,6 +20,10 @@ public class Data : MonoBehaviour
     [SerializeField] GameObject cablePrefab;
     public GameObject source;
 
+    public GameData gameSO;
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     public void Start()
     { 
         GameManager.mouseDatas.Add(this);
@@ -179,5 +183,17 @@ public class Data : MonoBehaviour
         }
 
         return componentIndex;
+    }
+
+    public void ChangeColor()
+    {
+        if (value == 1)
+        {
+            spriteRenderer.color = gameSO.colorTrue;
+        }
+        else
+        {
+            spriteRenderer.color = gameSO.colorFalse;
+        }
     }
 }
