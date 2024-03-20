@@ -12,7 +12,10 @@ public class InputTrigger2 : Trigger
             {
                 Data mouseData = collision.GetComponent<Data>();
 
-                mouseData.ConnectCable(component, false);
+                if (mouseData.outputed == false)
+                {
+                    mouseData.ConnectCable(component, false);
+                }
             }
         }      
     }

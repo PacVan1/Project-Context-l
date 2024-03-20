@@ -19,8 +19,10 @@ public class Data : MonoBehaviour
     [SerializeField] GameObject sourcePrefab;
     [SerializeField] GameObject cablePrefab;
     public GameObject source;
+    public GameObject output;
 
     public GameData gameSO;
+    public bool outputed = false;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -124,6 +126,11 @@ public class Data : MonoBehaviour
             mouseCableData.a = components[components.Count - 1].outputD.transform;
             cableData.b = components[components.Count - 1].inputB.transform;
         }
+    }
+
+    public void EndCable()
+    {
+        mouseCableData.b = output.transform;
     }
 
     public void RemoveCable()

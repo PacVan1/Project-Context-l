@@ -14,7 +14,10 @@ public class OutputTrigger2 : Trigger
             {
                 Data mouseData = collision.GetComponent<Data>();
 
-                mouseData.DisconnectCable(component);
+                if (mouseData.outputed == false)
+                {
+                    mouseData.DisconnectCable(component);
+                }
             }
         }      
     }
