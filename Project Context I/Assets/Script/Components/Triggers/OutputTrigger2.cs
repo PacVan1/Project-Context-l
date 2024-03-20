@@ -12,21 +12,9 @@ public class OutputTrigger2 : Trigger
         {
             if (component.bIsConnected)
             {
-                Data collisionData = collision.GetComponent<Data>();
+                Data mouseData = collision.GetComponent<Data>();
 
-                if (ContainsComponent(collisionData))
-                {
-                    int index = GetComponentIndex(collisionData);
-
-                    if (index == collisionData.components.Count - 1)
-                    {
-                        collisionData.components.Remove(collisionData.components[index]);
-                        collisionData.connectedToAOrB.Remove(collisionData.connectedToAOrB[index]);
-                        component.bIsConnected = false;
-
-                        //Debug.Log("dettached! " + "b : " + component.bIsConnected + " " + component.gameObject.name);
-                    }
-                }
+                mouseData.DisconnectCable(component);
             }
         }      
     }

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public abstract class Component : MonoBehaviour
 {
+    // properties
     public bool aIsConnected;
     public bool bIsConnected;
 
-    public Transform aPos;
-    public Transform bPos;
-    public Transform cPos;
-    public Transform dPos;
+    // in- and output prefabs
+    public GameObject inputA;
+    public GameObject inputB;
+    public GameObject outputC;
+    public GameObject outputD;
 
     public SpriteRenderer sprite;
     public Game gameManager;

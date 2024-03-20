@@ -11,20 +11,9 @@ public class InputTrigger : Trigger
         {
             if (!component.aIsConnected)
             {
-                Data collisionData = collision.GetComponent<Data>();
+                Data mouseData = collision.GetComponent<Data>();
 
-                if (!ContainsComponent(collisionData))
-                {
-                    component.aIsConnected = true;
-                    collisionData.components.Add(component);
-                    collisionData.connectedToAOrB.Add(true);
-
-                    //Debug.Log("Attached! " + "a : " + component.aIsConnected + " " + component.gameObject.name);
-                }
-                else
-                {
-                    //Debug.Log("Can't connect. Component is connected already.");
-                }
+                mouseData.ConnectCable(component, true);
             }
         }
     }

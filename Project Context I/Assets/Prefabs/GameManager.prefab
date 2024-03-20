@@ -91,10 +91,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lampVisualizer: {fileID: 0}
+  powerSolver: {fileID: 0}
   colorOn: {r: 1, g: 1, b: 1, a: 0}
   colorOff: {r: 0, g: 0, b: 0, a: 0}
-  colorTrue: {r: 1, g: 1, b: 0.5137255, a: 0}
-  colorFalse: {r: 0.37647063, g: 0.23529413, b: 0.007843138, a: 0}
+  colorTrue: {r: 1, g: 1, b: 0.5137255, a: 1}
+  colorFalse: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
+  inputA: {fileID: 0}
+  inputB: {fileID: 0}
+  outputC: {fileID: 0}
+  outputD: {fileID: 0}
 --- !u!114 &1899402109446669229
 MonoBehaviour:
   m_ObjectHideFlags: 0
