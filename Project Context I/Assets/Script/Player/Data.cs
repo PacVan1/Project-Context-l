@@ -7,41 +7,43 @@ using UnityEngine;
 
 public class Data : MonoBehaviour
 {
-    int playerNumber;
-    public int value;
-    public int lastIndex;
-    public List<Component> components = new List<Component>();
-    public List<bool> connectedToAOrB = new List<bool>(); // true is a, false is b
-    public List<GameObject> cables = new List<GameObject>();
-    public GameObject mouseCable;
-    public Cable mouseCableData;
+    private GameObject mouseCable; // I feel like I do not need this
+    private Cable mouseCableData; // I feel like I also do not need this
 
-    [SerializeField] GameObject sourcePrefab;
+    public int value;
+    public int lastIndex; // I could probably use recursion if I knew how that works
+
+    public List<Component> components = new List<Component>();
+    public List<bool> connectedToAOrB = new List<bool>(); // I could make a variable in each components which stores which mouse is in which component
+    public List<GameObject> cables = new List<GameObject>(); 
+
+    [SerializeField] GameObject sourcePrefab; // Don't need this
     [SerializeField] GameObject cablePrefab;
     public GameObject source;
     public GameObject output;
 
-    public GameData gameSO;
-    public bool outputed = false;
+    public GameData gameSO; // Make it so that all important values are stored in the same place for easy access
+    public bool outputed = false; // I have to see if I can find a better solution for this
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
     public void Start()
     { 
-        GameManager.mouseDatas.Add(this);
-        playerNumber = GameManager.mouseDatas.Count - 1;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        float sourceY = 0;
-        if (playerNumber == 0)
+        GameManager.mouseDatas.Add(this);
+        source = Instantiate(sourcePrefab);
+        GameManager.sources.Add(source.GetComponent<SpriteRenderer>());
+
+        if (GameManager.mouseDatas.Count == 1)
         {
-            sourceY = 2f;
+            source.transform.position = new Vector3(-5, 2);
         }
         else
         {
-            sourceY = -2f;  
+            source.transform.position = new Vector3(-5, -2);
         }
 
-        source = Instantiate(sourcePrefab, new Vector3(-5f, sourceY, 0), Quaternion.identity);
         mouseCable = Instantiate(cablePrefab);
         mouseCableData = mouseCable.GetComponent<Cable>();
 

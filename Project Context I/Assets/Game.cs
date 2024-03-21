@@ -38,7 +38,7 @@ public class Game : MonoBehaviour
         if (GameManager.mouseDatas.Count == 2)
         {
             StartValues();
-            powerSolver.LoopThroughCables();
+            powerSolver.LoopThroughCables(GameManager.mouseDatas);
             lampVisualizer.ChangeLamps();
 
             foreach (Data mouse in GameManager.mouseDatas)

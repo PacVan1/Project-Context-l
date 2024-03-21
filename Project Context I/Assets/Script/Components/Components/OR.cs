@@ -9,6 +9,6 @@ public class OR : Component
         if (_a == 1 || _b == 1)
         {
             return (1, _b);
-        } else { return (1, _b); }
+        } else { return (0, _b); }
     }
 }

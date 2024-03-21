@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutputTrigger : Trigger
+public class OutputTrigger : Trigger // try to find a way to only need two triggers instead of four
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

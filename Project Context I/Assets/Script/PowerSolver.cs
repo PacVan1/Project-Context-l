@@ -5,51 +5,36 @@ using UnityEngine;
 
 public class PowerSolver : MonoBehaviour
 {
-    private List<Data> mouseDatas = new List<Data>();
-
-    private void Start()
+    public void LoopThroughCables(List<Data> m)
     {
-        mouseDatas = GameManager.mouseDatas;
-    }
+        m[0].value = GameManager.startValue1;
+        m[1].value = GameManager.startValue2;
 
-    private void Update()
-    {
-        if (mouseDatas.Count == 2)
-        {
-            //LoopThroughCables();
-        }
-    }
-
-    public void LoopThroughCables()
-    {
-        mouseDatas[0].value = GameManager.startValue1;
-        mouseDatas[1].value = GameManager.startValue2;
-
-        mouseDatas[0].lastIndex = 0;
-        mouseDatas[1].lastIndex = 0;
+        m[0].lastIndex = 0;
+        m[1].lastIndex = 0;
 
         // running all small components before the big ones
-        RunningSmallComponents();
+        RunningSmallComponents(m);
 
-        while (mouseDatas[0].lastIndex < mouseDatas[0].components.Count && mouseDatas[1].lastIndex < mouseDatas[1].components.Count)
+        while (m[0].lastIndex < m[0].components.Count && m[1].lastIndex < m[1].components.Count)
         {
             // check if both mouses have the same components attached at the same points in the array
-            if (mouseDatas[0].components[mouseDatas[0].lastIndex] == mouseDatas[1].components[mouseDatas[1].lastIndex])
+            if (m[0].components[m[0].lastIndex] == m[1].components[m[1].lastIndex])
             {
                 // check if the cable is connected to either point a (true) or b (false)
-                if (mouseDatas[0].connectedToAOrB[mouseDatas[0].lastIndex] == true)
+                if (m[0].connectedToAOrB[m[0].lastIndex] == true)
                 {
-                    (mouseDatas[0].value, mouseDatas[1].value) = mouseDatas[0].components[mouseDatas[0].lastIndex].OnConnected(mouseDatas[0].value, mouseDatas[1].value);
+                    (m[0].value, m[1].value) = m[0].components[m[0].lastIndex].OnConnected(m[0].value, m[1].value);
                 }
                 else
                 {
-                    (mouseDatas[1].value, mouseDatas[0].value) = mouseDatas[0].components[mouseDatas[0].lastIndex].OnConnected(mouseDatas[1].value, mouseDatas[0].value);
+                    (m[1].value, m[0].value) = m[0].components[m[0].lastIndex].OnConnected(m[1].value, m[0].value);
                 }
 
-                mouseDatas[0].lastIndex++;
-                mouseDatas[1].lastIndex++;
+                m[0].lastIndex++;
+                m[1].lastIndex++;
 
-                RunningSmallComponents();
+                RunningSmallComponents(m);
             }
             else
             {
@@ -58,22 +43,22 @@ public class PowerSolver : MonoBehaviour
         }
     }
 
-    public void RunningSmallComponents()
+    public void RunningSmallComponents(List<Data> m)
     {
         // running all small components
-        for (int d = 0; d < mouseDatas.Count; d++)                                         // d = data
+        for (int d = 0; d < m.Count; d++)                                         // d = data
         {
-            if (mouseDatas[d].lastIndex < mouseDatas[d].components.Count)
+            if (m[d].lastIndex < m[d].components.Count)
             {
-                for (int c = mouseDatas[d].lastIndex; c < mouseDatas[d].components.Count; c++) // c = components
+                for (int c = m[d].lastIndex; c < m[d].components.Count; c++) // c = components
                 {
-                    if (mouseDatas[d].components[c].CompareTag("SmallComponent"))
+                    if (m[d].components[c].CompareTag("SmallComponent"))
                     {
-                        mouseDatas[d].value = mouseDatas[d].components[c].OnConnected(mouseDatas[d].value)._c;
+                        m[d].value = m[d].components[c].OnConnected(m[d].value)._c;
                     }
                     else
                     {
-                        mouseDatas[d].lastIndex = c; 
+                        m[d].lastIndex = c; 
                         break;
                     }
                 }

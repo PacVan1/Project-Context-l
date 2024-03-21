@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class Component : MonoBehaviour
 {
     // properties
-    public bool aIsConnected;
-    public bool bIsConnected;
+    public bool aIsConnected; // change this into what mouse is connected (mouse for connected, null for disconnected)
+    public bool bIsConnected; //
 
     // in- and output prefabs
     public GameObject inputA;
@@ -14,27 +14,34 @@ public abstract class Component : MonoBehaviour
     public GameObject outputC;
     public GameObject outputD;
 
-    public SpriteRenderer sprite;
-    public Game gameManager;
+    private SpriteRenderer spriteRenderer;
+    public Game gameManager; // do something about the gamemanager. you're using too much different kinds of references 
 
     public void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Update()
     {
-        ChangeColor();
+        ChangeColor(); // Doesn't have to change every frame. Only when cables have changed
     }
 
     public abstract (int _c, int _d) OnConnected(int _a, int _b = -1);
 
     public void ChangeColor()
     {
-        if (aIsConnected && bIsConnected)
+        if (aIsConnected)
         {
-            sprite.color = gameManager.colorTrue;
+            if (CompareTag("SmallComponent") || bIsConnected)
+            {
+                spriteRenderer.color = gameManager.colorTrue;
+            } 
+            else
+            {
+                spriteRenderer.color = gameManager.colorFalse;
+            }
         }
-        else { sprite.color = gameManager.colorFalse; }
+        else { spriteRenderer.color = gameManager.colorFalse; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LampVisualizer : MonoBehaviour
+public class LampVisualizer : MonoBehaviour // maybe unneccesarry
 {
     public List<Image> lamps = new List<Image>();
 
@@ -12,13 +12,13 @@ public class LampVisualizer : MonoBehaviour
 
     public void ChangeLamps()
     {
-        for (int i = 0; i < lamps.Count; i++)
+        for (int i = 2; i < lamps.Count; i++)
         {
             int value = 0;
 
             switch (i)
             {
-                case 0: value = GameManager.startValue1;  break;
+                case 0: value = GameManager.startValue1; break;
                 case 1: value = GameManager.startValue2; break;
                 case 2: value = GameManager.mouseDatas[0].value; break;
                 case 3: value = GameManager.mouseDatas[1].value; break;
@@ -31,6 +31,26 @@ public class LampVisualizer : MonoBehaviour
             else
             {
                 lamps[i].color = onColor;
+            }
+        }
+
+        for (int i = 0; i < GameManager.sources.Count; i++)
+        {
+            int value = 0;
+
+            switch (i)
+            {
+                case 0: value = GameManager.startValue1; break;
+                case 1: value = GameManager.startValue2; break;
+            }
+
+            if (value == 0)
+            {
+                GameManager.sources[i].color = offColor;
+            }
+            else
+            {
+                GameManager.sources[i].color = onColor;
             }
         }
     }
