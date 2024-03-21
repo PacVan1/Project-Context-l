@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1741659958975266638}
   - component: {fileID: 4065252112068991736}
   - component: {fileID: 1899402109446669229}
+  - component: {fileID: 8820187432099913694}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -90,16 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6a5b9a3d02cf14eae80a76326dfdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lampVisualizer: {fileID: 0}
-  powerSolver: {fileID: 0}
-  colorOn: {r: 1, g: 1, b: 1, a: 0}
-  colorOff: {r: 0, g: 0, b: 0, a: 0}
-  colorTrue: {r: 1, g: 1, b: 0.5137255, a: 1}
-  colorFalse: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
-  inputA: {fileID: 0}
-  inputB: {fileID: 0}
-  outputC: {fileID: 0}
-  outputD: {fileID: 0}
 --- !u!114 &1899402109446669229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,10 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a9a048977b51944b7241b508a2eb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  onColor: {r: 1, g: 1, b: 0.5137255, a: 1}
-  offColor: {r: 0.37647063, g: 0.23529413, b: 0.007843138, a: 1}
+  colors: {fileID: 11400000, guid: 71201b38537b98441a84ed9344bc823b, type: 2}
+--- !u!114 &8820187432099913694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146878341198330480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ec36271b1199047b02860178633034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

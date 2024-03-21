@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Output : MonoBehaviour
 {
+    public GameObject output;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Mouse"))
@@ -12,6 +14,7 @@ public class Output : MonoBehaviour
 
             mouseData.outputed = true;
             mouseData.output = gameObject;
+            mouseData.outputSprite = output.GetComponent<SpriteRenderer>();
             mouseData.EndCable();
         }
     }

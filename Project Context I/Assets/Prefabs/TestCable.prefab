@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2020122347446011271}
   - component: {fileID: 3598280710181503202}
-  - component: {fileID: 1658872340208039360}
+  - component: {fileID: -6016276912566445995}
   m_Layer: 0
-  m_Name: Cable
+  m_Name: TestCable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,8 +126,8 @@ LineRenderer:
       m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
+    numCornerVertices: 5
+    numCapVertices: 5
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -137,7 +137,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1658872340208039360
+--- !u!114 &-6016276912566445995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,8 +146,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4200772397800392461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4214d7d6cab78448c3c2c97e6c31f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 08355405a5d1e6144bef3131f6eb0afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetA: {fileID: 0}
   targetB: {fileID: 0}
+  len: 0.2
+  numberSegments: 4

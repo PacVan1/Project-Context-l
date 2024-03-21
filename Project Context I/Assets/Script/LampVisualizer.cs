@@ -5,35 +5,10 @@ using UnityEngine.UI;
 
 public class LampVisualizer : MonoBehaviour // maybe unneccesarry
 {
-    public List<Image> lamps = new List<Image>();
-
-    public Color onColor = Color.green;
-    public Color offColor = Color.red;
+    [SerializeField] private GameData colors;
 
     public void ChangeLamps()
     {
-        for (int i = 2; i < lamps.Count; i++)
-        {
-            int value = 0;
-
-            switch (i)
-            {
-                case 0: value = GameManager.startValue1; break;
-                case 1: value = GameManager.startValue2; break;
-                case 2: value = GameManager.mouseDatas[0].value; break;
-                case 3: value = GameManager.mouseDatas[1].value; break;
-            }
-
-            if (value == 0)
-            {
-                lamps[i].color = offColor;
-            }
-            else
-            {
-                lamps[i].color = onColor;
-            }
-        }
-
         for (int i = 0; i < GameManager.sources.Count; i++)
         {
             int value = 0;
@@ -46,11 +21,26 @@ public class LampVisualizer : MonoBehaviour // maybe unneccesarry
 
             if (value == 0)
             {
-                GameManager.sources[i].color = offColor;
+                GameManager.sources[i].color = colors.colorFalse;
             }
             else
             {
-                GameManager.sources[i].color = onColor;
+                GameManager.sources[i].color = colors.colorTrue;
+            }
+        }
+
+        for (int i = 0; i < GameManager.mouseDatas.Count; i++)
+        {
+            if (GameManager.mouseDatas[i].output != null)
+            {
+                if (GameManager.mouseDatas[i].value == 1)
+                {
+                    GameManager.mouseDatas[i].outputSprite.color = colors.colorTrue;
+                }
+                else
+                {
+                    GameManager.mouseDatas[i].outputSprite.color = colors.colorFalse;
+                }
             }
         }
     }

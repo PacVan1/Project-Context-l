@@ -6,8 +6,8 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
     // color palette
-    [SerializeField] public Color colorOn;
-    [SerializeField] public Color colorOff;
+    [SerializeField] public Color componentActivated;
+    [SerializeField] public Color componentDeactivated;
     [SerializeField] public Color colorTrue;
     [SerializeField] public Color colorFalse;
 }

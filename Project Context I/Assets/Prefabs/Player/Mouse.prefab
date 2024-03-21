@@ -168,13 +168,13 @@ MonoBehaviour:
   components: []
   connectedToAOrB: 
   cables: []
-  mouseCable: {fileID: 0}
-  mouseCableData: {fileID: 0}
   sourcePrefab: {fileID: 1041902828327507690, guid: e9ee25e978e7904458309f47ff0df5f6, type: 3}
   cablePrefab: {fileID: 4200772397800392461, guid: 93194045444779e43a24cf832adb53af, type: 3}
   source: {fileID: 0}
-  gameSO: {fileID: 11400000, guid: 71201b38537b98441a84ed9344bc823b, type: 2}
-  spriteRenderer: {fileID: 5977956937306629469}
+  output: {fileID: 0}
+  outputSprite: {fileID: 0}
+  colors: {fileID: 11400000, guid: 71201b38537b98441a84ed9344bc823b, type: 2}
+  outputed: 0
 --- !u!114 &4651614097783908697
 MonoBehaviour:
   m_ObjectHideFlags: 0

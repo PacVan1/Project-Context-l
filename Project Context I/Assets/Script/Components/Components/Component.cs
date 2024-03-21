@@ -16,6 +16,7 @@ public abstract class Component : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public Game gameManager; // do something about the gamemanager. you're using too much different kinds of references 
+    [SerializeField] GameData colors;
 
     public void Start()
     {
@@ -35,13 +36,13 @@ public abstract class Component : MonoBehaviour
         {
             if (CompareTag("SmallComponent") || bIsConnected)
             {
-                spriteRenderer.color = gameManager.colorTrue;
+                spriteRenderer.color = colors.colorTrue;
             } 
             else
             {
-                spriteRenderer.color = gameManager.colorFalse;
+                spriteRenderer.color = colors.colorFalse;
             }
         }
-        else { spriteRenderer.color = gameManager.colorFalse; }
+        else { spriteRenderer.color = colors.colorFalse; }
     }
 }

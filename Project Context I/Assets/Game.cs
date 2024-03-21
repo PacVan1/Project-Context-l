@@ -7,18 +7,13 @@ public class Game : MonoBehaviour
 {
     private int index;
     private bool coroutineIsRunning = false;
-    public LampVisualizer lampVisualizer;
-    public PowerSolver powerSolver;
-
-    // color palette
-    [SerializeField] public Color colorOn;
-    [SerializeField] public Color colorOff;
-    [SerializeField] public Color colorTrue;
-    [SerializeField] public Color colorFalse;
+    private LampVisualizer lampVisualizer;
+    private PowerSolver powerSolver;
 
     private void Start()
     {
         lampVisualizer = GetComponent<LampVisualizer>();
+        powerSolver = GetComponent<PowerSolver>();
     }
 
     private void Update()
@@ -33,7 +28,7 @@ public class Game : MonoBehaviour
     private IEnumerator StartValueTimer()
     {
         coroutineIsRunning = true;
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1f);
 
         if (GameManager.mouseDatas.Count == 2)
         {

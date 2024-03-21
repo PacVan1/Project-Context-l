@@ -21,8 +21,9 @@ public class Data : MonoBehaviour
     [SerializeField] GameObject cablePrefab;
     public GameObject source;
     public GameObject output;
+    public SpriteRenderer outputSprite; // hell no
 
-    public GameData gameSO; // Make it so that all important values are stored in the same place for easy access
+    public GameData colors; // Make it so that all important values are stored in the same place for easy access
     public bool outputed = false; // I have to see if I can find a better solution for this
 
     private SpriteRenderer spriteRenderer;
@@ -30,7 +31,6 @@ public class Data : MonoBehaviour
     public void Start()
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         GameManager.mouseDatas.Add(this);
         source = Instantiate(sourcePrefab);
         GameManager.sources.Add(source.GetComponent<SpriteRenderer>());
@@ -47,8 +47,8 @@ public class Data : MonoBehaviour
         mouseCable = Instantiate(cablePrefab);
         mouseCableData = mouseCable.GetComponent<Cable>();
 
-        mouseCableData.a = source.transform;
-        mouseCableData.b = transform;
+        mouseCableData.targetA = source.transform;
+        mouseCableData.targetB = transform;
     }
 
     public void ConnectCable(Component component, bool AOrB)
@@ -103,36 +103,36 @@ public class Data : MonoBehaviour
 
         if (cables.Count == 1)
         {
-            cableData.a = source.transform;
+            cableData.targetA = source.transform;
         }
         else
         {
             if (connectedToAOrB[connectedToAOrB.Count - 2] == true)
             {
-                cableData.a = components[components.Count - 2].outputC.transform;
+                cableData.targetA = components[components.Count - 2].outputC.transform;
             }
             else
             {
-                cableData.a = components[components.Count - 2].outputD.transform;
+                cableData.targetA = components[components.Count - 2].outputD.transform;
             }
         }
 
 
         if (connectedToAOrB[connectedToAOrB.Count - 1] == true)
         {
-            mouseCableData.a = components[components.Count - 1].outputC.transform;
-            cableData.b = components[components.Count - 1].inputA.transform;
+            mouseCableData.targetA = components[components.Count - 1].outputC.transform;
+            cableData.targetB = components[components.Count - 1].inputA.transform;
         } 
         else
         {
-            mouseCableData.a = components[components.Count - 1].outputD.transform;
-            cableData.b = components[components.Count - 1].inputB.transform;
+            mouseCableData.targetA = components[components.Count - 1].outputD.transform;
+            cableData.targetB = components[components.Count - 1].inputB.transform;
         }
     }
 
     public void EndCable()
     {
-        mouseCableData.b = output.transform;
+        mouseCableData.targetB = output.transform;
     }
 
     public void RemoveCable()
@@ -144,17 +144,17 @@ public class Data : MonoBehaviour
 
         if (cables.Count == 0)
         {
-            mouseCableData.a = source.transform;
+            mouseCableData.targetA = source.transform;
         }
         else
         {
             if (connectedToAOrB[connectedToAOrB.Count - 1] == true)
             {
-                mouseCableData.a = components[components.Count - 1].outputC.transform;
+                mouseCableData.targetA = components[components.Count - 1].outputC.transform;
             } 
             else
             {
-                mouseCableData.a = components[components.Count - 1].outputD.transform;
+                mouseCableData.targetA = components[components.Count - 1].outputD.transform;
             }
         }
     }
@@ -198,11 +198,11 @@ public class Data : MonoBehaviour
     {
         if (value == 1)
         {
-            spriteRenderer.color = gameSO.colorTrue;
+            spriteRenderer.color = colors.colorTrue;
         }
         else
         {
-            spriteRenderer.color = gameSO.colorFalse;
+            spriteRenderer.color = colors.colorFalse;
         }
     }
 }

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: Playfield RuleTile
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 21300000, guid: c5ec4f48e22d924478cd9bff9d706a90, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: c5ec4f48e22d924478cd9bff9d706a90, type: 3}
+    - {fileID: 21300000, guid: 6c789c75cc67ef7448674a1c7cec0aec, type: 3}
+    - {fileID: 21300000, guid: 063a5d0744c5b2c4db60a40287bc62f6, type: 3}
+    - {fileID: 21300000, guid: 457b618cc4256974f85be9b0191522d4, type: 3}
+    - {fileID: 21300000, guid: 9d832c15a45873f40a7ba5848e8c8761, type: 3}
+    - {fileID: 21300000, guid: eae1915d74a7f064cb792e95228faa9a, type: 3}
+    - {fileID: 21300000, guid: 1b416294399197944b9abcbc02a1d30c, type: 3}
+    - {fileID: 21300000, guid: 5a6bab441e1d19440946fd11d2fa8e9a, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.609
+    m_Output: 1
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 
+    m_NeighborPositions:
+    - {x: -1, y: 1, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
+    m_RuleTransform: 0
