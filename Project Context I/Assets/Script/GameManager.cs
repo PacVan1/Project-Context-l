@@ -9,5 +9,6 @@ public static class GameManager
     public static int startValue2 = 0;
 
     public static List<Data> mouseDatas = new List<Data>();
-    public static List<SpriteRenderer> sources = new List<SpriteRenderer>();
+    public static List<GameObject> sources = new List<GameObject>();
+    public static List<GameObject> outputs = new List<GameObject>();
 }

@@ -10,10 +10,20 @@ public class Game : MonoBehaviour
     private LampVisualizer lampVisualizer;
     private PowerSolver powerSolver;
 
+    public GameObject sourcePrefab;
+    public GameObject outputPrefab;
+
+    public bool checkAnswer = false;
+    public int[,] answer = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+    public bool won = true;
+
     private void Start()
     {
         lampVisualizer = GetComponent<LampVisualizer>();
         powerSolver = GetComponent<PowerSolver>();
+
+        InstantiateSources();
+        lampVisualizer.GetSourceSprite();
     }
 
     private void Update()
@@ -23,6 +33,17 @@ public class Game : MonoBehaviour
             // loop through start values
             StartCoroutine("StartValueTimer");
         }
+    }
+
+    private void InstantiateSources()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            GameManager.sources.Add(Instantiate(sourcePrefab));
+        }
+
+        GameManager.sources[0].transform.position = new Vector3(-5, 1.7f);
+        GameManager.sources[1].transform.position = new Vector3(-5, -1.7f);
     }
 
     private IEnumerator StartValueTimer()
@@ -56,5 +77,31 @@ public class Game : MonoBehaviour
 
         if (index == 3) { index = 0; }
         else { index++; }
+
+
+    }
+
+    public void CheckAnswers()
+    {
+        if (GameManager.mouseDatas[0].outputed == true && GameManager.mouseDatas[1].outputed == true && index == 0)
+        {
+            checkAnswer = true;
+        }
+
+        if (checkAnswer == true)
+        {
+            if (GameManager.mouseDatas[0].value != answer[index, 0] || GameManager.mouseDatas[1].value != answer[index, 1])
+            {
+                won = false;
+            }
+
+            if (index == 3)
+            {
+                if (won == true)
+                {
+                    Debug.Log("You won!");
+                } else { Debug.Log("You lose");  }
+            }
+        }
     }
 }

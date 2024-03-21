@@ -36,13 +36,13 @@ public abstract class Component : MonoBehaviour
         {
             if (CompareTag("SmallComponent") || bIsConnected)
             {
-                spriteRenderer.color = colors.colorTrue;
+                spriteRenderer.color = colors.componentActivated;
             } 
             else
             {
-                spriteRenderer.color = colors.colorFalse;
+                spriteRenderer.color = colors.componentDeactivated;
             }
         }
-        else { spriteRenderer.color = colors.colorFalse; }
+        else { spriteRenderer.color = colors.componentDeactivated; }
     }
 }

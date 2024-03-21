@@ -32,17 +32,7 @@ public class Data : MonoBehaviour
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameManager.mouseDatas.Add(this);
-        source = Instantiate(sourcePrefab);
-        GameManager.sources.Add(source.GetComponent<SpriteRenderer>());
-
-        if (GameManager.mouseDatas.Count == 1)
-        {
-            source.transform.position = new Vector3(-5, 2);
-        }
-        else
-        {
-            source.transform.position = new Vector3(-5, -2);
-        }
+        source = GameManager.sources[GameManager.mouseDatas.Count - 1];
 
         mouseCable = Instantiate(cablePrefab);
         mouseCableData = mouseCable.GetComponent<Cable>();
